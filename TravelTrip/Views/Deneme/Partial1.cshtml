@@ -1,0 +1,30 @@
+﻿@using TravelTrip.Models.Siniflar
+@model List<Blog>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="~/web/web/css/style.css" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="~/web/web/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+<script src="~/web/web/js/jquery.min.js"></script>
+<script src="~/web/web/js/responsiveslides.min.js"></script>
+<div class="con-bot">
+    @foreach (var x in Model)
+    {
+
+
+    <div class="left">
+        <div class="bot-left">
+            <img src="@x.BlogImage" style="height:250px" alt="" />
+        </div>
+        <div class="left-text">
+            <h4>@x.Baslik</h4>
+            <span>@x.Tarih.ToString("dd.MM.yyyy")</span>
+            <p>@x.Aciklama.Substring(0,10)</p>
+            <p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Oku>></span></a></p>
+        </div>
+    </div>
+
+    }
+    @Html.Action("Partial2","Deneme")
+   
+    <div class="clear"></div>
+</div>
